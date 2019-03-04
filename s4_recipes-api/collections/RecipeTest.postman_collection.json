@@ -1,0 +1,273 @@
+{
+	"info": {
+		"_postman_id": "aaddaac4-10a4-4912-9b4a-75f862646d81",
+		"name": "RecipeTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Crear receta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f9c49d5b-e5fb-4c21-b233-ae6b42e36d37",
+						"exec": [
+							"tests[\"no genera error en el Get\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Tacos de res\",\r\n    \"description\": \"Receta para cocinar tacos típicos con un fuerte sabor picante\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s4_recipes-api/api/recipes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s4_recipes-api",
+						"api",
+						"recipes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear receta mal formato nombre",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f9c49d5b-e5fb-4c21-b233-ae6b42e36d37",
+						"exec": [
+							"tests[\"no crea con mal formato\"] = responseCode.code === 412;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"\",\r\n    \"description\": \"Receta para cocinar tacos típicos con un fuerte sabor picante\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s4_recipes-api/api/recipes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s4_recipes-api",
+						"api",
+						"recipes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear receta mal formato descripcion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f9c49d5b-e5fb-4c21-b233-ae6b42e36d37",
+						"exec": [
+							"tests[\"no crea con mal formato\"] = responseCode.code === 412;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Tacos de res\",\r\n    \"description\": \"\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s4_recipes-api/api/recipes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s4_recipes-api",
+						"api",
+						"recipes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear receta nombre muy largo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f9c49d5b-e5fb-4c21-b233-ae6b42e36d37",
+						"exec": [
+							"tests[\"no crea con mal formato\"] = responseCode.code === 412;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Tacos de resaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\r\n    \"description\": \"Receta para cocinar tacos típicos con un fuerte sabor picante\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s4_recipes-api/api/recipes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s4_recipes-api",
+						"api",
+						"recipes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear receta descripcion muy larga",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f9c49d5b-e5fb-4c21-b233-ae6b42e36d37",
+						"exec": [
+							"tests[\"no crea con mal formato\"] = responseCode.code === 412;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Tacos de res2\",\r\n    \"description\": \"Receta para cocinar tacos típicos con un fuerte sabor picanteaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s4_recipes-api/api/recipes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s4_recipes-api",
+						"api",
+						"recipes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear receta mismo nombre",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f9c49d5b-e5fb-4c21-b233-ae6b42e36d37",
+						"exec": [
+							"tests[\"no crea con mal formato\"] = responseCode.code === 412;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Tacos de res\",\r\n    \"description\": \"Receta para cocinar tacos típicos con un fuerte sabor picante\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s4_recipes-api/api/recipes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s4_recipes-api",
+						"api",
+						"recipes"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
